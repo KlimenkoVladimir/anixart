@@ -2,16 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 #root{
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(15, 15, 15);
+    color: white;
 }
 
 .App{
-    width: 500px;
+    width: 100%
 }
 
 .post{
@@ -67,24 +70,6 @@ h1{
   
 }
 
-.navbar {
-  display: flex;
-  height: 50px;
-  width: 100%;
-  justify-content: right;
-  align-items: center;
-  padding: 10px 50px 10px 50px;
-  background-color: rgb(50, 50, 50);
-}
-
-.navbar a {
-  margin: 5px;
-  padding: 10px;
-  text-decoration: none;
-  color: green;
-  font-weight: 500;
-}
-
 .post__wrapper {
   margin: 40px 240px 40px 240px;
 }
@@ -97,12 +82,53 @@ h1{
   margin: 40px;
 }
 
-h3 {
-  margin: 10px 0px;
-  font-weight: 500;
-}
-
 h2 {
   font-weight: 500;
   text-align: center;
+}
+
+
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 100px 15px 100px;
+}
+
+.home-item {
+  width: 200px;
+  margin-bottom: 30px;
+  color: white;
+  text-decoration: none;
+  
+}
+
+.home-item img {
+  width: 196px;
+  height: 294px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.home-item h3 {
+  font-size: 16px;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.home-item h4 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.home-item-short-discription {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

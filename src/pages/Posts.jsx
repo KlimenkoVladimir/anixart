@@ -63,9 +63,9 @@ function Posts() {
         <PostForm create={createPost} />
       </MyModal>
       <PostFilter filter={filter} setFilter={setFilter} />
-      <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Front-end'} />
-      <MyButton onClick={() => setModal(true)} >Новый пост</MyButton>
-      <Pagination totalPages={totalPages} page={page} changePage={changePage}/>
+      <PostList remove={removePost} posts={sortedAndSearchedPosts} title={'Top anime'} />
+      {/* <MyButton onClick={() => setModal(true)} >Новый пост</MyButton> */}
+      {/* <Pagination totalPages={totalPages} page={page} changePage={changePage}/> */}
     </div >
   );
 }
