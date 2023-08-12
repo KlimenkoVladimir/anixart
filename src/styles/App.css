@@ -1,53 +1,66 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-#root{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(15, 15, 15);
-    color: white;
+#root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(15, 15, 15);
+  color: white;
 }
 
-.App{
-    width: 100%
+.App {
+  width: 100%
 }
 
-.post{
-    display: flex;
-    margin: 10px;
-    padding: 10px;
-    border: 2px solid green;
-    border-radius: 1rem;
-    justify-content: space-between;
-    align-items: center;
+.post {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 1rem;
+  justify-content: space-between;
+  align-items: center;
 
 }
 
-h1{
-    text-align: center;
-    font-size: 30px;
-    margin: 15px
+h1 {
+  text-align: center;
+  font-size: 30px;
+  margin: 15px
 }
+
+/* button {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+} */
 
 .post-enter {
-    opacity: 0;
-  }
-  .post-enter-active {
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }
-  .post-exit {
-    opacity: 1;
-  }
-  .post-exit-active {
-    opacity: 0;
-    transition: opacity 300ms ease-in;
-  }
+  opacity: 0;
+}
+
+.post-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.post-exit {
+  opacity: 1;
+}
+
+.post-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
 
 .page__wrapper {
   margin: 20px;
@@ -61,13 +74,13 @@ h1{
   padding: 5px;
   border: 1px solid green;
   border-radius: 25%;
-  background-color:  transparent;
+  background-color: transparent;
   cursor: pointer;
 }
 
 .page__current {
   border: 2px solid rgb(0, 100, 0);
-  
+
 }
 
 .post__wrapper {
@@ -101,7 +114,7 @@ h2 {
   margin-bottom: 30px;
   color: white;
   text-decoration: none;
-  
+
 }
 
 .home-item img {

@@ -9,20 +9,23 @@ import Wallpaper from "./components/Wallpaper";
 import TestServise from "./API/TestServise";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import './firebase'
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false)
+  // const [isAuth, setIsAuth] = useState(false)
+  const [authUser, setAuthUser] = useState(null);
+  const [userDb, setUserDb] = useState({})
   const [option, setOption] = useState(TestServise.getAnime())
-  useEffect(() => {
-    if (localStorage.getItem("auth")) {
-      setIsAuth(true)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (localStorage.getItem("auth")) {
+  //     setIsAuth(true)
+  //   }
+  // }, [])
   return (
     <AuthContext.Provider value={{
-      isAuth,
-      setIsAuth
+      authUser,
+      setAuthUser,
+      userDb,
+      setUserDb
     }}>
       <OptionContext.Provider value={{
         option,

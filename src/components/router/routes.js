@@ -7,13 +7,17 @@ import TestAPI from "../TestAPI"
 import TestServise from "../../API/TestServise"
 import Favorite from "../../pages/Favorite"
 import AnimeIdPage from "../../pages/AnimeIdPage"
+import Profile from "../../pages/Profile"
+import ProfileChange from "../../pages/ProfileChange"
 
 export const privateRoutes = [
     {component: <About/>, path: '/about', exact: true},
     {component: <Posts/>, path: '/posts', exact: true},
     {component: <AnimeIdPage/>, path: '/:id', exact: true},
     {component: <Home/>, path: '/home', exact: true},
-    {component: <Favorite/>, path: '/favorite', expect: true}
+    {component: <Favorite/>, path: '/favorite', expect: true},
+    {component: <Profile/>, path: '/profile', expect: true},
+    {component: <ProfileChange/>, path: 'profile/change', expect: true},
 
 ]
 
@@ -23,6 +27,5 @@ export const publicRoutes = [
     {component: <Posts/>, path: '/posts', exact: true},
     {component: <AnimeIdPage/>, path: '/:id', exact: true},
     {component: <Home/>, path: '/home', exact: true},
-    {component: <Favorite/>, path: '/favorite', expect: true}
 
 ]
