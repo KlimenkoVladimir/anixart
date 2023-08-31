@@ -1,12 +1,13 @@
 #profile {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    padding: 30px 30px 0px 30px;
+    min-height: 100vh;
+    padding: 15px 30px 15px 30px;
 }
 
 #profile-image {
-    width: 200px;
+    width: 70%;
     height: auto;
 }
 
@@ -15,4 +16,35 @@
     flex-direction: column;
     align-items: center;
     width: 33%;
+}
+#column-1 {
+    width: 20%;
+}
+#column-2 {
+    width: 30%;
+}
+#column-3 {
+    width: 50%;
+}
+
+.profile-statistic {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.ratind-header {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0px 30px 10px 30px
+  
+
+}
+
+.ratind-header h2 {
+    flex-grow: 1;
+    text-align: center;
 }

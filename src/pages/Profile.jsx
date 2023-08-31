@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import { homeButtonContent } from "../components/utils/buttonContent";
 import Navbar from "../components/UI/navbar/navbar";
 import { auth } from "../firebase"
 import { updateProfile } from "firebase/auth";
 import { getDatabase, ref, set, onValue, update } from "firebase/database";
 import { AuthContext } from "../context/context";
 import "../styles/Profile.css"
-import { Link } from "react-router-dom";
 import MyModal from "../components/UI/MyModal/MyModal";
 import MyInput from "../components/UI/input/MyInput";
+import ProfileStatistic from "../components/ProfileStatistic";
+import ProfileRating from "../components/ProfileRating";
+import { Link } from "react-router-dom";
 import MyButton from "../components/UI/button/MyButton";
+import {getWatchIdList} from "../components/utils/utils"
 
 
 const Profile = () => {
@@ -32,17 +34,6 @@ const Profile = () => {
         });
         setNewValue('')
         setVisible(false)
-
-        // updateProfile(user, {
-        //     displayName: nickname
-        // })
-        //     .then(() => {
-        //         console.log(`Никнейм успешно изменен ${nickname}`);
-        //         setVisible(false)
-        //     })
-        //     .catch((error) => {
-        //         console.error("Ошибка при изменении никнейма:", error);
-        //     });
     }
 
     const changeStatus = (status) => {
@@ -77,15 +68,13 @@ const Profile = () => {
         setVisible(true);
     }
 
-    useEffect(() => {
-        const userDbRef = ref(db, 'users/' + user.uid);
-        onValue(userDbRef, (snapshot) => {
-            const userDb = snapshot.val();
-            setUserDb(userDb);
-        });
-    }, [db, user]);
+    if (!authUser) {
+        // Возвращаем что-то, если пользователь не авторизован
+        return <Navbar buttonContent={null} />
+    }
 
-    console.log(userDb, user)
+    const watchIdList = getWatchIdList(userDb, "Просмотрено")
+    console.log(watchIdList)
 
 
     return (
@@ -98,9 +87,9 @@ const Profile = () => {
             </MyModal>
             <div id="profile">
                 <div className="column" id="column-1">
-                    <img id="profile-image"  src={userDb ? (userDb.photoURL || "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg") : "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg"}  alt="user-img" />
-                    <h3>{userDb ? (userDb.nickname || authUser.email) : authUser.email}</h3>
-                    <h3>{userDb ? (userDb.status || 'Статус') : 'Статус'}</h3>
+                    <img id="profile-image" src={userDb ? (userDb.photoURL || "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg") : "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg"} alt="user-img" />
+                    <h4>{userDb ? (userDb.nickname || authUser.email) : authUser.email}</h4>
+                    <h5>{userDb ? (userDb.status || 'Статус') : 'Статус'}</h5>
                     {/* <Link to={'/profile/change'}>Редактировать</Link> */}
                     <button onClick={() => showModal('никнейм')}>Изменить никнейм</button>
                     <button onClick={() => showModal('статус')}>Изменить статус</button>
@@ -109,34 +98,18 @@ const Profile = () => {
 
                 <div className="column" id="column-2">
                     <h2>Статистика</h2>
-                    <ul>
-                        <li>
-                            <img />
-                            <h3>Смотрю</h3>
-                        </li>
-                        <li>
-                            <img />
-                            <h3>В планах</h3>
-                        </li>
-                        <li>
-                            <img />
-                            <h3>Просмотено</h3>
-                        </li>
-                        <li>
-                            <img />
-                            <h3>Отложено</h3>
-                        </li>
-                        <li>
-                            <img />
-                            <h3>Брошено</h3>
-                        </li>
-                    </ul>
+                    <ProfileStatistic />
                     <img />
-                    <h3>Просмотрено серий:</h3>
-                    <h3>Время просмотра: ~</h3>
+                    <h5>Просмотрено серий:</h5>
+                    <h5>Время просмотра: ~</h5>
                 </div>
                 <div className="column" id="column-3">
-                    <h2>Оценки релизов</h2>
+                    <div className="ratind-header">
+                        <h2>Оценки релизов</h2>
+                        <Link to={'/rating'}>Все</Link>
+                    </div>
+
+                    <ProfileRating maxItemCount={4} starIcons={true} size={"15"} padding={"0px"} margin={"15px"} hiwidth={"140px"} width={"136px"} height={"204px"} h4fs={"10px"} h3fs={"12px"} />
                     <div className="card-mini">
 
                     </div>

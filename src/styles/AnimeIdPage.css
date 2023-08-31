@@ -1,11 +1,16 @@
 .anime-page {
     padding: 0px 90px 0px 90px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url("https://mobimg.b-cdn.net/v3/fetch/4a/4a5344a1828995821241d8b68876d792.jpeg");
+    background: linear-gradient(to bottom,
+            rgba(15, 15, 15, 1) 0%,
+            rgba(15, 15, 15, 0.3) 10%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(15, 15, 15, 0.3) 70%,
+            rgba(15, 15, 15, 1) 100%), url("https://mobimg.b-cdn.net/v3/fetch/4a/4a5344a1828995821241d8b68876d792.jpeg");
     background-size: cover;
 }
 
 .anime-page h1 {
-    padding-top: 60px;
+    padding-top: 45px;
     font-size: 72px;
     margin: 0px;
     text-align: left;
@@ -15,42 +20,130 @@
 .title-secondary {
     display: flex;
     align-items: center;
-    padding: 15px 30px 0px 20px;
+    padding: 15px 60px 0px 20px;
 }
 
-.title-secondary h3 {
+/* .title-secondary h3 {
     font-size: 40px;
     padding-left: 30px;
     font-weight: 400;
-}
+} */
 
 .title-secondary h4 {
-    font-size: 24px;
     padding-left: 30px;
-    font-weight: 400;
 }
 
 .discription {
     padding-top: 60px;
-    
+
 }
 
-.discription h5 {
+/* .discription h5 {
     font-size: 20px;
     font-weight: 400;
-}
+} */
 
 .anime-page button {
     margin: 60px 30px 60px 30px;
     width: 200px;
     height: 50px;
     font-size: 24px;
-    border-radius: 5px;
+    border-radius: 15px;
     border-style: none;
     cursor: pointer;
 }
 
 .anime-page p {
     font-size: 16px;
-    
+
+}
+
+.rating-and-statistic {
+    display: flex;
+    margin: 60px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
+.rating-and-statistic h4 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* margin: 10px; */
+}
+
+.rating-and-voices {
+    width: 30%;
+    text-align: center;
+}
+
+.rating-bars {
+    width: 50%;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+}
+
+.rating-bar h5 {
+    margin-right: 10px;
+}
+
+.img-and-stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.stars {
+    margin-left: 30px;
+}
+
+.stars svg {
+    margin: 6px;
+}
+
+.statistic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-bar {
+    border-radius: 5px;
+}
+
+.squers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 60%;
+
+}
+
+.squer {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    padding: 15px;
+}
+
+.squer svg {
+    margin-right: 10px;
 }

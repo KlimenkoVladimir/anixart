@@ -1,5 +1,6 @@
 import TestServise from "../../API/TestServise"
 
+
 export const homeButtonContent = [{
     title: 'Онгоинги',
     func: TestServise.getAnimeOngoing
@@ -25,14 +26,14 @@ export const homeButtonContent = [{
 
 export const favoriteButtonContent = [{
     title: 'Смотрю',
-    func: null
+    func: null 
   },
   {
     title: 'В планах',
     func: null
   },
   {
-    title: 'Просмотренно',
+    title: 'Просмотрено',
     func: null
   },
   {

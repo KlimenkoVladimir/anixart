@@ -1,31 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext, OptionContext } from "../../../context/context";
-import MyButton from "../button/MyButton";
-import './navbar-home.css'
+import './navbar.css'
 import TestServise from "../../../API/TestServise";
 import { auth } from "../../../firebase"
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getDatabase, ref, set, onValue, update } from "firebase/database";
 
-const Navbar = ({ buttonContent }) => {
+const Navbar = ({ buttonContent, setSearch, setAnime}) => {
 
     const { setOption } = useContext(OptionContext)
-    const selectOption = async (serviseMethod) => {
-        const newOption = await serviseMethod;
-        setOption(newOption);
-    }
 
     const [inputValue, setInputValue] = useState('')
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     };
-    const searchAnime = async () => {
-        const newSearch = await TestServise.getAnimeSearch(inputValue)
-        setOption(newSearch)
-    }
+    // const searchAnime = async () => {
+    //     const newSearch = await TestServise.getAnimeSearch(inputValue)
+    //     setOption(newSearch)
+    // }
 
-    const { authUser, setAuthUser, userDb, setUserDb } = useContext(AuthContext)
+    const searchAnime = () => {
+        setAnime([]);
+        setSearch(inputValue)
+        setOption(() => TestServise.getAnimeSearch);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+    const { authUser, setAuthUser, userDb, setUserDb, favoriteCategory, setFavoriteCategory } = useContext(AuthContext)
     const db = getDatabase();
     const user = auth.currentUser
 
@@ -53,38 +55,6 @@ const Navbar = ({ buttonContent }) => {
         };
     }, []);
 
-    // useEffect(() => {
-    //     const listen = onAuthStateChanged(auth, (user) => {
-    //         if (user) {
-    //             setAuthUser(user);
-    //         } else {
-    //             setAuthUser(null);
-    //         }
-    //     });
-
-    //     return () => {
-    //         listen();
-    //     };
-    // }, []);
-
-    // useEffect(() => {
-    //     if (auth.currentUser) {
-    //         const userDbRef = ref(db, 'users/' + user.uid);
-    //         onValue(userDbRef, (snapshot) => {
-    //             const userDb = snapshot.val();
-    //             setUserDb(userDb);
-    //         });
-
-    //     }
-    // }, []);
-
-    // useEffect(() => {
-    //     const userDbRef = ref(db, 'users/' + user.uid);   
-    //     onValue(userDbRef, (snapshot) => {
-    //         const userDb = snapshot.val();
-    //         setUserDb(userDb);
-    //     });
-    // }, []);
 
     const userSignOut = () => {
         signOut(auth)
@@ -94,13 +64,13 @@ const Navbar = ({ buttonContent }) => {
             .catch((error) => console.log(error));
     };
 
-    console.log(auth.currentUser, userDb)
+    console.log(favoriteCategory)
 
     return (
         <div className="navbar">
             <div className="row-1">
-                <Link to={'/home'}>
-                    <img className="logo" src="https://anixart.tv/images/logo.svg"></img>
+                <Link className="logo" to={'/home'}>
+                    <img src="https://anixart.tv/images/logo.svg"></img>
                     <h3>Anixart</h3>
                 </Link>
                 <div className="search">
@@ -113,7 +83,7 @@ const Navbar = ({ buttonContent }) => {
 
                 </div>
                 <div className="user-info">
-                    <img src={userDb ? (userDb.photoURL || "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg") : "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg"} alt="user-img" />
+                    <img className="user-img" src={userDb ? (userDb.photoURL || "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg") : "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg"} alt="user-img" />
                     {authUser ?
                         <Link to="/profile">{userDb ? (userDb.nickname || authUser.email) : authUser.email}</Link>
                         :
@@ -130,19 +100,7 @@ const Navbar = ({ buttonContent }) => {
                     }
                 </div>
             </div>
-            {buttonContent
-                ?
-                <div className="links">
-                    <button onClick={() => selectOption(buttonContent[0].func())}>{buttonContent[0].title}</button>
-                    <button onClick={() => selectOption(buttonContent[1].func())}>{buttonContent[1].title}</button>
-                    <button onClick={() => selectOption(buttonContent[2].func())}>{buttonContent[2].title}</button>
-                    <button onClick={() => selectOption(buttonContent[3].func())}>{buttonContent[3].title}</button>
-                    <button onClick={() => selectOption(buttonContent[4].func())}>{buttonContent[4].title}</button>
-                    <Link to={'/favorite'}>Закладки</Link>
-                </div>
-                :
-                null
-            }
+            {buttonContent}
         </div>
     )
 }

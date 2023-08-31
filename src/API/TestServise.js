@@ -1,12 +1,14 @@
 import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 
 export default class TestServise {
     
-    static async getAnime(filter = 'bypopularity', type = null) {
+    static async getAnime(filter = 'bypopularity', type = null, page = 1) {
         const response = await axios.get('https://api.jikan.moe/v4/top/anime', {
             params: {
                 type: type,
-                filter: filter
+                filter: filter,
+                page: page
             }
         })
         return response
@@ -22,7 +24,7 @@ export default class TestServise {
         return TestServise.getAnime('bypopularity')
     }
     static async getAnimeMovie() {
-        return TestServise.getAnime(null, 'movie')
+        return TestServise.getAnime( null, 'movie')
     }
     static async getAnimeOVA() {
         return TestServise.getAnime(null, 'ova')
@@ -41,5 +43,15 @@ export default class TestServise {
         const response = await axios.get(`https://api.jikan.moe/v4/anime/${id}/full`)
         return response
     }
-     
+
+    static async getAnimeStatistic(id) {
+        const response = await axios.get(`https://api.jikan.moe/v4/anime/${id}/statistics`)
+        return response
+    }
+
+    static async getAnimePictures(id) {
+        const response = await axios.get(`https://api.jikan.moe/v4/anime/${id}/pictures`)
+        return response
+    }
+    
 }

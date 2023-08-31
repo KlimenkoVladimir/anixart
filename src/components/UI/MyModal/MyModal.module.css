@@ -10,7 +10,7 @@
 
 .myModalContent {
     padding: 25px;
-    background: white;
+    color: rgb(176, 176, 176);
     border-radius: 1rem;
     min-width: 300px;
 }
