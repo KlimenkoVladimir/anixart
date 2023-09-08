@@ -5,12 +5,13 @@
     left: 0;
     right: 0;
     display: none;
-    background: rgba(0, 0, 0, 0.5);  
+    background: rgba(0, 0, 0, 0.9);  
 }
 
 .myModalContent {
     padding: 25px;
-    color: rgb(176, 176, 176);
+    /* color: rgb(176, 176, 176); */
+    color: white;
     border-radius: 1rem;
     min-width: 300px;
 }

@@ -108,7 +108,7 @@
 }
 
 .stars svg {
-    margin: 6px;
+    margin: 5px;
 }
 
 .statistic {
@@ -133,17 +133,26 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    width: 60%;
+    width: 80%;
 
 }
 
 .squer {
     display: flex;
     align-items: center;
-    width: 30%;
+    /* width: 30%; */
     padding: 15px;
 }
 
 .squer svg {
     margin-right: 10px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .stars svg {
+        margin: 0px;
+        width: 10px;
+        height: 10px;
+    }
 }

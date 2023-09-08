@@ -11,12 +11,12 @@ import ProfileStatistic from "../components/ProfileStatistic";
 import ProfileRating from "../components/ProfileRating";
 import { Link } from "react-router-dom";
 import MyButton from "../components/UI/button/MyButton";
-import {getWatchIdList} from "../components/utils/utils"
+import { getEpWatched, getHoursWatched, getWatchIdList } from "../components/utils/utils"
 
 
 const Profile = () => {
 
-    const { authUser, setAuthUser, userDb, setUserDb } = useContext(AuthContext)
+    const { authUser, setFavoriteCategory, userDb, setUserDb } = useContext(AuthContext)
 
     const [visible, setVisible] = useState(false)
     const [type, setType] = useState('');
@@ -73,8 +73,8 @@ const Profile = () => {
         return <Navbar buttonContent={null} />
     }
 
-    const watchIdList = getWatchIdList(userDb, "Просмотрено")
-    console.log(watchIdList)
+    // const watchIdList = getWatchIdList(userDb, "Просмотрено")
+    console.log(userDb)
 
 
     return (
@@ -82,15 +82,19 @@ const Profile = () => {
             <Navbar buttonContent={null} />
             <MyModal visible={visible} setVisible={setVisible}>
                 <MyInput placeholder={`Введите ${placeholder}`} value={newValue} onChange={(e) => setNewValue(e.target.value)}></MyInput>
-                <button onClick={handleSave}>Изменить</button>
-                <button onClick={() => setVisible(false)}>Отмена</button>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <MyButton onClick={handleSave}>Изменить</MyButton>
+                    <MyButton onClick={() => setVisible(false)}>Отмена</MyButton>
+                </div>
+
             </MyModal>
             <div id="profile">
                 <div className="column" id="column-1">
                     <img id="profile-image" src={userDb ? (userDb.photoURL || "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg") : "https://s.abcnews.com/images/US/ABC_silhouette_man_3_sk_141212.jpg"} alt="user-img" />
                     <h4>{userDb ? (userDb.nickname || authUser.email) : authUser.email}</h4>
-                    <h5>{userDb ? (userDb.status || 'Статус') : 'Статус'}</h5>
-                    {/* <Link to={'/profile/change'}>Редактировать</Link> */}
+                    <h6>{userDb ? (userDb.status || 'Статус') : 'Статус'}</h6>
+                    <div style={{padding: '10px'}}>
+                    </div>
                     <button onClick={() => showModal('никнейм')}>Изменить никнейм</button>
                     <button onClick={() => showModal('статус')}>Изменить статус</button>
                     <button onClick={() => showModal('URL фото')}>Изменить фото профиля</button>
@@ -100,19 +104,18 @@ const Profile = () => {
                     <h2>Статистика</h2>
                     <ProfileStatistic />
                     <img />
-                    <h5>Просмотрено серий:</h5>
-                    <h5>Время просмотра: ~</h5>
+                    <h5>Просмотрено серий: {getEpWatched(userDb)}</h5>
+                    <h5>Время просмотра: ~ {getHoursWatched(userDb)} часов</h5>
                 </div>
                 <div className="column" id="column-3">
                     <div className="ratind-header">
                         <h2>Оценки релизов</h2>
-                        <Link to={'/rating'}>Все</Link>
+                        <Link to={'/favorite'} onClick={() => setFavoriteCategory('Оценки')}>Все</Link>
                     </div>
+                    <ProfileRating maxItemCount={4} starIcons={true} size={"15"} gtc={"repeat(4, 1fr)"} padding={"10px"} hiwidth={"140px"} width={"136px"} height={"204px"} h4fs={"10px"} h3fs={"12px"} />
+                    {/* <div className="card-mini">
 
-                    <ProfileRating maxItemCount={4} starIcons={true} size={"15"} padding={"0px"} margin={"15px"} hiwidth={"140px"} width={"136px"} height={"204px"} h4fs={"10px"} h3fs={"12px"} />
-                    <div className="card-mini">
-
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

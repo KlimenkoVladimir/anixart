@@ -16,7 +16,8 @@ function HomeButtons() {
             <button onClick={() => setFavoriteCategory('Просмотрено')}>Просмотрено</button>
             <button onClick={() => setFavoriteCategory('Отложено')}>Отложено</button>
             <button onClick={() => setFavoriteCategory('Брошено')}>Брошено</button>
-            <button>Отценки</button>
+            <button onClick={() => setFavoriteCategory('Оценки')}>Оценки</button>
+            {/* <Link to={'/rating'}>Оценки</Link> */}
             <Link to={'/home'}>Главная</Link>
         </div>
     );

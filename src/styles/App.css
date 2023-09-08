@@ -11,6 +11,7 @@
   flex-direction: column;
   background-color: rgb(15, 15, 15);
   color: white;
+  min-height: 100vh
 }
 
 .App {
@@ -115,6 +116,12 @@ h5 {
   font-weight: 400;
 }
 
+h6 {
+  font-size: 14px;
+  font-weight: 200;
+  text-align: center;
+}
+
 button {
   text-decoration: none;
   color: white;
@@ -122,24 +129,25 @@ button {
   font-weight: 500;
   background-color: transparent;
   border: none;
+  margin: 3px;
   cursor: pointer;
 }
 
+svg {
+  margin: 1px;
+}
+
 .home-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   width: 100%;
-  padding: 15px 100px 15px 100px;
+  padding: 15px 7% 15px 7%;
 }
 
 .home-item {
-  width: 18%;
   margin-bottom: 30px;
   color: white;
   text-decoration: none;
-  margin-left: 1%;
-  margin-right: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -187,6 +195,7 @@ button {
   border-radius: 50%;
 }
 
+
 /* Стили для мобильных устройств (ширина до 767px) */
 @media (max-width: 767px) {
   .home-container {
@@ -210,6 +219,10 @@ button {
 
   .home-item h3 {
     font-size: 16px;
+  }
+
+  button {
+    font-size: 12px;
   }
 }
 
@@ -246,6 +259,10 @@ button {
 
   .home-item h3 {
     font-size: 14px;
+  }
+
+  button {
+    font-size: 12px;
   }
 }
 

@@ -7,22 +7,30 @@ import { auth } from "../firebase"
 const StarIcons = ({ anime, size }) => {
 
   const { authUser, setAuthUser, userDb, setUserDb, favoriteCategory, setFavoriteCategory } = useContext(AuthContext)
-  const [selectedIdx, setSelectedIdx] = useState(userDb.ratingList ? (userDb.ratingList[anime.mal_id] || 0) : 0); // Индекс выбранной звезды
+  const [selectedIdx, setSelectedIdx] = useState(userDb?.anime ? (userDb.anime[anime.mal_id]?.rating || 0) : 0); // Индекс выбранной звезды
   const db = getDatabase();
   const user = auth.currentUser
 
   const handleStarClick = (num) => {
+    if (!authUser) {
+      alert("Войдите в аккаунт")
+      return
+    }
     setSelectedIdx(num); // Задаем индекс выбранной звезды
     changeRating(num)
   };
 
   useEffect(() => {
-    setSelectedIdx(userDb.ratingList ? (userDb.ratingList[anime.mal_id] || 0) : 0);
+    setSelectedIdx(userDb?.anime ? (userDb.anime[anime.mal_id]?.rating || 0) : 0);
   }, [userDb, anime.mal_id]);
 
   const changeRating = (num) => {
-    update(ref(db, 'users/' + user.uid + '/ratingList'), {
-      [anime.mal_id]: num
+    update(ref(db, 'users/' + user.uid + '/anime/' + anime.mal_id), {
+          ... anime,
+          status: "Просмотрено"
+  });
+    update(ref(db, 'users/' + user.uid + '/anime/' + anime.mal_id), {
+      rating: num
     });
   }
 
@@ -33,7 +41,7 @@ const StarIcons = ({ anime, size }) => {
     display: "flex",
     justifyContent: "center"
   } : {};
-  // console.log(selectedIdx, userDb.ratingList[anime.mal_id], userDb.ratingList)
+  console.log(selectedIdx)
 
   return (
     <div className="stars" style={starsStyle}>

@@ -10,7 +10,7 @@ const ProfileStatistic = () => {
 
     const statusNum = [];
 
-    if (userDb && userDb.watchStatusList) {
+    if (userDb && userDb.anime) {
         statusLabels.forEach((status) => {
             const watchIdList = getWatchIdList(userDb, status);
             statusNum.push(watchIdList.length);

@@ -13,7 +13,7 @@ import { store } from "./store";
 function App() {
   // const [isAuth, setIsAuth] = useState(false)
   const [authUser, setAuthUser] = useState(null);
-  const [userDb, setUserDb] = useState({})
+  const [userDb, setUserDb] = useState(null)
   const [favoriteCategory, setFavoriteCategory] = useState('Смотрю')
   const [option, setOption] = useState(() => TestServise.getAnime);
   const statusLabels = ["Смотрю", "В планах", "Просмотрено", "Отложено", "Брошено"];

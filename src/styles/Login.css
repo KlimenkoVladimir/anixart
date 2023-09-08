@@ -1,0 +1,8 @@
+.center-container {
+    padding-top: 10vh;
+   }
+
+.login-buttons {
+    display: flex;
+    justify-content: center;
+}

@@ -6,15 +6,12 @@ import { Link } from "react-router-dom";
 import StarIcons from "./StarsIcons";
 
 
-const TestAPI = ({ maxItemCount, anime, starIcons, size, padding, margin, hiwidth, width, height, h4fs, h3fs }) => {
+const TestAPI = ({ maxItemCount, anime, starIcons, size, gtc,  padding, width, height, h4fs, h3fs }) => {
 
 
     const hc = {
         padding: padding,
-    };
-    const hi = {
-        width: hiwidth,
-        marginBottom: margin
+        gridTemplateColumns: gtc
     };
     const hiimg = {
         width: width,
@@ -35,15 +32,13 @@ const TestAPI = ({ maxItemCount, anime, starIcons, size, padding, margin, hiwidt
     .filter(item => item.title_english)
     .filter(item => item.scored_by > 10000)
     .slice(0, maxItemCount)
-    console.log(filteredAnime)
-    if (filteredAnime.length !== 0) {
-        
-        
+    console.log(anime)
+    if (filteredAnime.length !== 0) {  
         return (
             <div className="home-container" style={hc}>
                 {filteredAnime.map((item) => {
                     return (
-                        <Link to={`/${item.mal_id}`} className="home-item" style={hi} key={item.mal_id}>
+                        <Link to={`/${item.mal_id}`} className="home-item" key={item.mal_id} onClick={() => window.scrollTo(0, 0)}>
                             <img src={item.images.jpg.large_image_url} style={hiimg} />
                             <div className="home-item-short-discription">
                                 <h4 style={hih4}>{getSeason(item.season)} {item.aired.prop.from.year}</h4>
@@ -69,7 +64,7 @@ const TestAPI = ({ maxItemCount, anime, starIcons, size, padding, margin, hiwidt
                 })}
             </div>
         )
-    }
+    } else {return <h5 style={{ marginTop: "30vh",  textAlign: "center" }}>Тут пока пусто</h5>}
 }
 
 export default TestAPI

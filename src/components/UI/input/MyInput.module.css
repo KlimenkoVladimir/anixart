@@ -1,7 +1,9 @@
 .myInp{
+    display: block;
     margin: 10px;
     padding: 10px;
     border: 2px solid green;
     border-radius: 1rem;
-    width: 90%;
+    min-width: 300px;
+    
 }

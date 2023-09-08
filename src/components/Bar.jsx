@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext, OptionContext } from "../context/context";
 import Squers from "./Squers";
+import DiskChart from "./DiskChart";
 
 const Bar = ({ statistic }) => {
     const { statusLabels, color } = useContext(AuthContext)
@@ -28,7 +29,7 @@ const Bar = ({ statistic }) => {
                     return rect
                 })}
             </svg>
-            <Squers width={'30%'} padding={'15px'} num={[]}/>
+            <Squers padding={'15px'} num={[]}/>
 
         </div>
     );
