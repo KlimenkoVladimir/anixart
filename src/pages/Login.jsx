@@ -24,6 +24,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        alert('Пользователь не найден')
       });
   }
 
@@ -33,12 +34,13 @@ const Login = () => {
       .then((userCredential) => {
         console.log(userCredential);
         navigate('/home')
-        update(ref(db, 'users/' + user.uid + '/anime'), {
+  //       update(ref(db, 'users/' + user.uid + '/anime'), {
         
-  });
+  // });
       })
       .catch((error) => {
         console.log(error);
+        alert('Некоректный логин или пароль')
       });
   }
 
@@ -47,7 +49,7 @@ const Login = () => {
   return (
     <div className="center-container">
       <h2>Авторизация</h2>
-      <MyInput type="text" placeholder="Логин" value={email} onChange={(e) => setUserLogin(e.target.value)} />
+      <MyInput type="text" placeholder="Email" value={email} onChange={(e) => setUserLogin(e.target.value)} />
       <MyInput type="password" placeholder="Пароль" value={password} onChange={(e) => setUserPassword(e.target.value)} />
       <div className="login-buttons">
         <MyButton onClick={() => handleLogin(email, password)}>Войти</MyButton>

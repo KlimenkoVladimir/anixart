@@ -17,7 +17,7 @@ function Home() {
   const [search, setSearch] = useState(false)
   const [isPageIncremented, setPageIncremented] = useState(false); // Добавленное состояние
 
-  console.log(option, page)
+  console.log(page)
   const [fetchAnime, isAnimeLoading, animeError] = useFetching(async (filter, type, page) => {
     const responce = await option(filter, type, page);
     // setAnime(prevAnime => [...prevAnime, ...responce.data.data])

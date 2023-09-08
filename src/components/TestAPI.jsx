@@ -30,9 +30,9 @@ const TestAPI = ({ maxItemCount, anime, starIcons, size, gtc,  padding, width, h
 
     const filteredAnime = anime
     .filter(item => item.title_english)
-    .filter(item => item.scored_by > 10000)
+    .filter(item => item.scored_by > 10000)   
     .slice(0, maxItemCount)
-    console.log(anime)
+    // console.log(filteredAnime)
     if (filteredAnime.length !== 0) {  
         return (
             <div className="home-container" style={hc}>
