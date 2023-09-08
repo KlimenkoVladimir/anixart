@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/anixart/static/css/main.38128280.css",
+    "main.js": "/anixart/static/js/main.ba3486d4.js",
+    "index.html": "/anixart/index.html",
+    "main.38128280.css.map": "/anixart/static/css/main.38128280.css.map",
+    "main.ba3486d4.js.map": "/anixart/static/js/main.ba3486d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38128280.css",
+    "static/js/main.ba3486d4.js"
+  ]
+}
