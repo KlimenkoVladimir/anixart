@@ -68,7 +68,7 @@ const Navbar = ({ buttonContent, setSearch, setAnime, setPage }) => {
             .then(() => {
                 console.log("sign out successful");
                 setUserDb(null)   /// очищаем userDb чтобы пропало фото профиля
-                navigate('/home');
+                navigate('../');
             })
             .catch((error) => console.log(error));
 
@@ -77,7 +77,7 @@ const Navbar = ({ buttonContent, setSearch, setAnime, setPage }) => {
     return (
         <div className="navbar">
             <div className="row-1">
-                <Link className="logo" to={'/home'}
+                <Link className="logo" to={'../'}
                 //  onClick={() => {
                 //     setAnime([])
                 //     setFilter('bypopularity')

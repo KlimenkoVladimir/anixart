@@ -20,7 +20,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate('/home')
+        navigate('../')
       })
       .catch((error) => {
         console.log(error);
@@ -33,7 +33,7 @@ const Login = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate('/home')
+        navigate('../')
   //       update(ref(db, 'users/' + user.uid + '/anime'), {
         
   // });
