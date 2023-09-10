@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/anixart/static/css/main.38128280.css",
-    "main.js": "/anixart/static/js/main.b4771a21.js",
+    "main.js": "/anixart/static/js/main.b790b5a7.js",
     "index.html": "/anixart/index.html",
     "main.38128280.css.map": "/anixart/static/css/main.38128280.css.map",
-    "main.b4771a21.js.map": "/anixart/static/js/main.b4771a21.js.map"
+    "main.b790b5a7.js.map": "/anixart/static/js/main.b790b5a7.js.map"
   },
   "entrypoints": [
     "static/css/main.38128280.css",
-    "static/js/main.b4771a21.js"
+    "static/js/main.b790b5a7.js"
   ]
 }
