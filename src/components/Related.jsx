@@ -21,7 +21,7 @@ const Related = ({ anime }) => {
 
     const [fetchAnimeById, isAnimeLoadingById, animeErrorById] = useFetching(async (relatedIdList) => {
         const responseArray = [];
-        // await new Promise(resolve => setTimeout(resolve, 350)); // Начальная задержка
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Начальная задержка
 
         for (let i = 0; i < relatedIdList.length; i++) {
             const id = relatedIdList[i];
@@ -29,7 +29,7 @@ const Related = ({ anime }) => {
             responseArray.push(response.data);
 
             if (i < relatedIdList.length) {
-                await new Promise(resolve => setTimeout(resolve, 350)); // Задержка 1 секунда
+                await new Promise(resolve => setTimeout(resolve, 500)); // Задержка 1 секунда
             }
             setRelatedAnimeList(responseArray.map(item => item.data));
         }

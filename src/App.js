@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import './styles/App.css'
-import { BrowserRouter, Route, Routes, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Switch, Redirect, Link } from "react-router-dom";
 import Navbar from "./components/UI/navbar/navbar";
 import AppRouter from "./components/AppRouter";
 import { AuthContext, OptionContext } from "./context/context";
@@ -41,6 +41,7 @@ function App() {
       }}>
         <BrowserRouter>
           <Provider store={store}>
+            <Link to={'/anixart'}>вроде работает</Link>
             <AppRouter />
             {/* <TestAPI/>
             <Wallpaper/> */}

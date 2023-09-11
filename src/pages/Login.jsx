@@ -20,7 +20,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate('../')
+        navigate('/anixart')
       })
       .catch((error) => {
         console.log(error);
@@ -29,11 +29,10 @@ const Login = () => {
   }
 
   const handleRegister = () => {
-
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        navigate('../')
+        navigate('/anixart')
   //       update(ref(db, 'users/' + user.uid + '/anime'), {
         
   // });

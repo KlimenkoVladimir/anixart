@@ -68,16 +68,18 @@ const Navbar = ({ buttonContent, setSearch, setAnime, setPage }) => {
             .then(() => {
                 console.log("sign out successful");
                 setUserDb(null)   /// очищаем userDb чтобы пропало фото профиля
-                navigate('../');
+                navigate('/anixart');
             })
             .catch((error) => console.log(error));
 
     };
 
+    console.log(userDb)
+
     return (
         <div className="navbar">
             <div className="row-1">
-                <Link className="logo" to={'../'}
+                <Link className="logo" to={'/anixart'}
                 //  onClick={() => {
                 //     setAnime([])
                 //     setFilter('bypopularity')

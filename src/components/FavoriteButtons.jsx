@@ -18,7 +18,7 @@ function HomeButtons() {
             <button onClick={() => setFavoriteCategory('Брошено')}>Брошено</button>
             <button onClick={() => setFavoriteCategory('Оценки')}>Оценки</button>
             {/* <Link to={'/rating'}>Оценки</Link> */}
-            <Link to={'../'}>Главная</Link>
+            <Link to={'/anixart'}>Главная</Link>
         </div>
     );
 }

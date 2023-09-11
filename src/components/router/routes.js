@@ -14,8 +14,8 @@ import Rating from "../../pages/Rating"
 export const privateRoutes = [
     {component: <About/>, path: '/about', exact: true},
     {component: <Posts/>, path: '/posts', exact: true},
-    {component: <AnimeIdPage/>, path: '/:id', exact: true},
-    {component: <Home/>, path: '', exact: true},
+    {component: <AnimeIdPage/>, path: '/anime/:id', exact: true},
+    {component: <Home/>, path: '/anixart', exact: true},
     {component: <Favorite/>, path: '/favorite', expect: true},
     {component: <Profile/>, path: '/profile', expect: true},
     {component: <ProfileChange/>, path: 'profile/change', expect: true},
@@ -30,7 +30,7 @@ export const publicRoutes = [
     {component: <Posts/>, path: '/posts', exact: true},
     {component: <Profile/>, path: '/profile', expect: true},
     {component: <Favorite/>, path: '/favorite', expect: true},
-    {component: <AnimeIdPage/>, path: '/:id', exact: true},
-    {component: <Home/>, path: '', exact: true},
+    {component: <AnimeIdPage/>, path: '/anime/:id', exact: true},
+    {component: <Home/>, path: '/anixart', exact: true},
 
 ]

@@ -30,7 +30,7 @@ const TestAPI = ({ maxItemCount, anime, starIcons, size, gtc,  padding, width, h
 
     const filteredAnime = anime
     .filter(item => item.title_english)
-    .filter(item => item.scored_by > 10000)   
+    // .filter(item => item.scored_by > 10000) // Фильтрует   
     .slice(0, maxItemCount)
     // console.log(filteredAnime)
     if (filteredAnime.length !== 0) {  
@@ -38,7 +38,7 @@ const TestAPI = ({ maxItemCount, anime, starIcons, size, gtc,  padding, width, h
             <div className="home-container" style={hc}>
                 {filteredAnime.map((item) => {
                     return (
-                        <Link to={`/${item.mal_id}`} className="home-item" key={item.mal_id} onClick={() => window.scrollTo(0, 0)}>
+                        <Link to={`/anime/${item.mal_id}`} className="home-item" key={item.mal_id} onClick={() => window.scrollTo(0, 0)}>
                             <img src={item.images.jpg.large_image_url} style={hiimg} />
                             <div className="home-item-short-discription">
                                 <h4 style={hih4}>{getSeason(item.season)} {item.aired.prop.from.year}</h4>
