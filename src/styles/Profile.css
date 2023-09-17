@@ -1,49 +1,128 @@
 #profile {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    padding: 30px;
+  display: grid;
+  grid-template-columns: 20% 30% 50%;
+  width: 100%;
+  padding: 30px;
 }
 
 #profile-image {
-    width: 70%;
-    height: auto;
+  width: 70%;
+  height: auto;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#column-1 {
-    width: 20%;
+/* #column-1 {
+  width: 20%;
+  padding-top: 30px;
 }
 #column-2 {
-    width: 30%;
+  width: 30%;
 }
 #column-3 {
-    width: 50%;
+  width: 50%;
+} */
+
+.change-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.change-buttons button {
+  font-size: 18px;
+  padding: 3px;
 }
 
 .profile-statistic {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .ratind-header {
-    display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0px 10% 0px 10%
-  
-
+  padding: 0px 10% 0px 10%;
 }
 
 .ratind-header h2 {
-    flex-grow: 1;
-    text-align: center;
+  flex-grow: 1;
+  text-align: center;
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  #profile {
+    padding: 15px;
+  }
+  .change-buttons button {
+    font-size: 16px;
+    padding: 3px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #profile {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    row-gap: 30px;
+  }
+  #column-3 {
+    grid-column: 1 / -1; /* Это означает, что элемент займет все доступные колонки */
+  }
+  .disk-chart svg {
+    width: 200px;
+    height: 200px;
+  }
+  .statistic-in-namers h5 {
+    font-size: 20px;
+  }
+  .ratind-header {
+    margin-bottom: 30px;
+  }
+  .ratind-header a {
+    font-size: 18px;
+  }
+}
+
+/* Стили для мобильных устройств (ширина до 767px) */
+@media (max-width: 767px) {
+  #profile {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    row-gap: 30px;
+    padding: 5px;
+  }
+  #column-3 {
+    grid-column: 1 / -1; /* Это означает, что элемент займет все доступные колонки */
+  }
+  .change-buttons button {
+    font-size: 14px;
+    padding: 1px;
+  }
+  .profile-statistic {
+    padding: 0px;
+  }
+  .disk-chart svg {
+    width: 90px;
+    height: 90px;
+  }
+  .statistic-in-namers h5 {
+    font-size: 14px;
+  }
+  .ratind-header {
+    margin-bottom: 30px;
+  }
+  .ratind-header a {
+    font-size: 14px;
+  }
+  .stars svg {
+    width: 10px;
+    height: 10px;
+  }
 }

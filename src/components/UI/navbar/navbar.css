@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   /* height: 125px; */
-  min-height: 80px;
+  min-height: 60px;
   width: 100%;
   justify-content: center;
   padding: 15px 7% 0px 7%;
@@ -13,7 +13,6 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .navbar h3 {
@@ -73,7 +72,6 @@ a {
   height: 40px;
   background-color: rgb(32, 32, 32);
   border-radius: 50px;
-
 }
 
 .search input {
@@ -115,7 +113,6 @@ a {
   /* border-bottom: 1px solid white; */
 }
 
-
 @media (min-width: 1024px) and (max-width: 1199px) {
   .logo img {
     width: 30px;
@@ -123,7 +120,7 @@ a {
     margin-right: 5px;
   }
 
-  .navbar h3{
+  .navbar h3 {
     font-size: 24px;
   }
 
@@ -131,74 +128,133 @@ a {
     width: 450px;
     height: 30px;
     border-radius: 30px;
-}
+  }
 
-.search input {
-  width: 420px;
-  height: 100%;
-  font-size: 12px;
-}
+  .search input {
+    width: 420px;
+    height: 100%;
+    font-size: 12px;
+  }
 
-.bibisearch {
-  width: 12px;
-  height: 12px;
-}
+  .bibisearch {
+    width: 12px;
+    height: 12px;
+  }
 
-.user-img {
-  height: 30px;
-  width: 30px;
-  margin-right: 5px;
-  object-fit: cover;
-  border-radius: 50%;
-}
+  .user-img {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 
-a {
-  font-size: 12px;
+  a {
+    font-size: 12px;
+  }
 }
-}
-
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .navbar {
-    padding: 15px 5% 0px 5%;
+    padding: 15px 3% 0px 3%;
   }
 
   .logo img {
     width: 30px;
-    height: 30px;
+    height: 40px;
     margin-right: 5px;
   }
 
-  .navbar h3{
-    font-size: 24px;
+  .navbar h3 {
+    font-size: 32px;
   }
 
   .search {
     width: 400px;
     height: 30px;
     border-radius: 30px;
+  }
+
+  .search input {
+    width: 370px;
+    height: 100%;
+    font-size: 14px;
+  }
+
+  .bibisearch {
+    width: 12px;
+    height: 12px;
+  }
+
+  .user-img {
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* a {
+    font-size: 12px;
+  } */
+  .user-info a {
+    display: none;
+  }
 }
 
-.search input {
-  width: 370px;
-  height: 100%;
-  font-size: 12px;
-}
+/* Стили для мобильных устройств (ширина до 767px) */
+@media (max-width: 767px) {
+  button {
+    font-size: 10px;
+  }
 
-.bibisearch {
-  width: 12px;
-  height: 12px;
-}
+  .links {
+    padding: 0px 5px 0px 5px;
+  }
 
-.user-img {
-  height: 30px;
-  width: 30px;
-  margin-right: 5px;
-  object-fit: cover;
-  border-radius: 50%;
-}
+  .navbar {
+    padding: 0px 2% 0px 2%;
+  }
 
-a {
-  font-size: 12px;
-}
+  .logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 3px;
+  }
+
+  .navbar h3 {
+    display: none;
+  }
+
+  .search {
+    width: 50%;
+    height: 30px;
+    border-radius: 30px;
+  }
+
+  .search input {
+    width: 85%;
+    height: 100%;
+    font-size: 12px;
+  }
+
+  .bibisearch {
+    width: 10px;
+    height: 10px;
+  }
+
+  .user-img {
+    height: 30px;
+    width: 30px;
+    margin-right: 3px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  a {
+    font-size: 10px;
+  }
+  .user-info a {
+    display: none;
+  }
 }

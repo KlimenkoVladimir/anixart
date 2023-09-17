@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useContext, useRef } from "react";
-import '../styles/App.css'
-import TestAPI from "../components/TestAPI";
+import "../styles/App.css";
+import TestAPI from "../components/Share/TestAPI/TestAPI";
 import Navbar from "../components/UI/navbar/navbar";
 import { OptionContext } from "../context/context";
 import { useFetching } from "../hooks/useFetching";
@@ -8,26 +8,27 @@ import HomeButtons from "../components/HomeButtons";
 import Loader from "../components/UI/loader/loader";
 
 function Home() {
-
-  const [anime, setAnime] = useState([])
-  const { option, setOption } = useContext(OptionContext)
-  const [page, setPage] = useState(1)
-  const [filter, setFilter] = useState('bypopularity')
-  const [type, setType] = useState(null)
-  const [search, setSearch] = useState(false)
+  const [anime, setAnime] = useState([]);
+  const { option, setOption } = useContext(OptionContext);
+  const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState("bypopularity");
+  const [type, setType] = useState(null);
+  const [search, setSearch] = useState(false);
   const [isPageIncremented, setPageIncremented] = useState(false); // Добавленное состояние
 
-  console.log(page)
-  const [fetchAnime, isAnimeLoading, animeError] = useFetching(async (filter, type, page) => {
-    const responce = await option(filter, type, page);
-    // setAnime(prevAnime => [...prevAnime, ...responce.data.data])
-    if (Array.isArray(responce.data.data)) {
-      setAnime(prevAnime => [...prevAnime, ...responce.data.data])
-    } else {
-      // Обработка случая, когда responce.data.data не является массивом
-      console.error("responce.data.data is not an array");
+  console.log(page);
+  const [fetchAnime, isAnimeLoading, animeError] = useFetching(
+    async (filter, type, page) => {
+      const responce = await option(filter, type, page);
+      // setAnime(prevAnime => [...prevAnime, ...responce.data.data])
+      if (Array.isArray(responce.data.data)) {
+        setAnime((prevAnime) => [...prevAnime, ...responce.data.data]);
+      } else {
+        // Обработка случая, когда responce.data.data не является массивом
+        console.error("responce.data.data is not an array");
+      }
     }
-  })
+  );
 
   const bottomObserverRef = useRef(); // Создаем ref для элемента, который будем наблюдать
 
@@ -35,7 +36,6 @@ function Home() {
     if (search) {
       // Используем search как аргумент для fetchAnime, если search true
       fetchAnime(search);
-
     } else {
       fetchAnime(filter, type, page);
     }
@@ -61,21 +61,37 @@ function Home() {
       return () => {
         if (bottomObserverRef.current) {
           observer.unobserve(bottomObserverRef.current);
-          setPageIncremented(false)
+          setPageIncremented(false);
         }
       };
     }
-
   }, [bottomObserverRef, page, anime]);
 
   return (
     <div className="App">
-      <Navbar buttonContent={<HomeButtons setAnime={setAnime} setPage={setPage} setFilter={setFilter} setType={setType} setSearch={setSearch} />} setSearch={setSearch} setAnime={setAnime} />
-      {isAnimeLoading && page === 1
-      ? <Loader/>
-      :<TestAPI maxItemCount={Infinity} anime={anime} />}
-      <div ref={bottomObserverRef} style={{ height: 1, background: 'transparent' }}></div>
-    </div >
+      <Navbar
+        buttonContent={
+          <HomeButtons
+            setAnime={setAnime}
+            setPage={setPage}
+            setFilter={setFilter}
+            setType={setType}
+            setSearch={setSearch}
+          />
+        }
+        setSearch={setSearch}
+        setAnime={setAnime}
+      />
+      {isAnimeLoading && (page === 1 || page === 2) ? (
+        <Loader />
+      ) : (
+        <TestAPI maxItemCount={Infinity} anime={anime} />
+      )}
+      <div
+        ref={bottomObserverRef}
+        style={{ height: 1, background: "transparent" }}
+      ></div>
+    </div>
   );
 }
 

@@ -17,7 +17,7 @@ export const getRatingIdList = (userDb) => {
 }
 
 export const getHoursWatched = (userDb) => {
-    if (!!userDb) {
+    if (userDb?.anime) {
         return Object.values(userDb.anime).filter(anime => anime.status === "Просмотрено").map(function(anime) {
             return  Math.round(getWithoutLetters(anime.duration) * anime.episodes / 60)
          }).reduce((sum, cur) => sum + cur, 0)
@@ -25,7 +25,8 @@ export const getHoursWatched = (userDb) => {
 }
 
 export const getEpWatched = (userDb) => {
-    if (!!userDb) {
+    console.log(userDb)
+    if (userDb?.anime) {
         return Object.values(userDb.anime).filter(anime => anime.status === "Просмотрено").map(function(anime) {
             return anime.episodes
          }).reduce((sum, cur) => sum + cur, 0)

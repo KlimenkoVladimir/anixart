@@ -1,12 +1,12 @@
-.myBtn{
-    /* position: absolute; */
-    font-size: 16px;
-    /* top: 25px;
+.myBtn {
+  /* position: absolute; */
+  font-size: 16px;
+  /* top: 25px;
     right: 100px; */
-    background-color: rgb(32, 32, 32);
-    padding: 10px;
-    margin: 10px;
-    border: 0;
-    border-radius: 15px;
-    color: white;
+  background-color: rgb(32, 32, 32);
+  padding: 10px;
+  margin: 10px;
+  border: 0;
+  border-radius: 15px;
+  color: white;
 }

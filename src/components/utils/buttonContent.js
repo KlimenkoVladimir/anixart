@@ -1,49 +1,48 @@
-import TestServise from "../../API/TestServise"
+import TestService from "../../API/TestService";
 
+export const homeButtonContent = [
+  {
+    title: "Онгоинги",
+    func: TestService.getAnimeOngoing,
+  },
+  {
+    title: "Анонсы",
+    func: TestService.getAnimeUpcoming,
+  },
+  {
+    title: "Завершенные",
+    func: TestService.getAnimeFinished,
+  },
+  {
+    title: "Фильмы",
+    func: TestService.getAnimeMovie,
+  },
+  {
+    title: "OVA",
+    func: TestService.getAnimeOVA,
+  },
+  // 'Онгоинги', 'Анонсы', 'Завершенные', 'Фильмы', 'OVA'
+];
 
-export const homeButtonContent = [{
-    title: 'Онгоинги',
-    func: TestServise.getAnimeOngoing
+export const favoriteButtonContent = [
+  {
+    title: "Смотрю",
+    func: null,
   },
   {
-    title: 'Анонсы',
-    func: TestServise.getAnimeUpcoming
+    title: "В планах",
+    func: null,
   },
   {
-    title: 'Завершенные',
-    func: TestServise.getAnimeFinished
+    title: "Просмотрено",
+    func: null,
   },
   {
-    title: 'Фильмы',
-    func: TestServise.getAnimeMovie
+    title: "Отложено",
+    func: null,
   },
   {
-    title: 'OVA',
-    func: TestServise.getAnimeOVA
+    title: "Брошено",
+    func: null,
   },
-    // 'Онгоинги', 'Анонсы', 'Завершенные', 'Фильмы', 'OVA'
-]
-
-export const favoriteButtonContent = [{
-    title: 'Смотрю',
-    func: null 
-  },
-  {
-    title: 'В планах',
-    func: null
-  },
-  {
-    title: 'Просмотрено',
-    func: null
-  },
-  {
-    title: 'Отложено',
-    func: null
-  },
-  {
-    title: 'Брошено',
-    func: null
-  },
-]
-
-
+];

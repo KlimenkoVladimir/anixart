@@ -1,0 +1,46 @@
+.squares {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 15px;
+}
+.squaresProfile {
+  display: block;
+  padding-top: 0px;
+  margin-right: 5px;
+}
+.squareId {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  min-width: 30%;
+}
+.biSquareFill {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) {
+  .squares {
+    padding-top: 0px;
+  }
+  .squaresProfile svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .squares {
+    margin-right: 10px;
+  }
+  .squaresProfile svg {
+    width: 20px;
+    height: 20px;
+  }
+  .squaresProfile h5 {
+    font-size: 20px;
+  }
+}

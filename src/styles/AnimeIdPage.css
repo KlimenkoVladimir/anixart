@@ -1,26 +1,29 @@
 .anime-page {
-    padding: 0px 90px 0px 90px;
-    background: linear-gradient(to bottom,
-            rgba(15, 15, 15, 1) 0%,
-            rgba(15, 15, 15, 0.3) 10%,
-            rgba(0, 0, 0, 0.5) 50%,
-            rgba(15, 15, 15, 0.3) 70%,
-            rgba(15, 15, 15, 1) 100%), url("https://mobimg.b-cdn.net/v3/fetch/4a/4a5344a1828995821241d8b68876d792.jpeg");
-    background-size: cover;
+  padding: 0px 90px 0px 90px;
+  background: linear-gradient(
+      to bottom,
+      rgba(15, 15, 15, 1) 0%,
+      rgba(15, 15, 15, 0.3) 10%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(15, 15, 15, 0.3) 70%,
+      rgba(15, 15, 15, 1) 100%
+    ),
+    url("https://mobimg.b-cdn.net/v3/fetch/4a/4a5344a1828995821241d8b68876d792.jpeg");
+  background-size: cover;
 }
 
 .anime-page h1 {
-    padding-top: 45px;
-    font-size: 72px;
-    margin: 0px;
-    text-align: left;
-    font-weight: 600;
+  padding-top: 45px;
+  font-size: 72px;
+  margin: 0px;
+  text-align: left;
+  font-weight: 600;
 }
 
 .title-secondary {
-    display: flex;
-    align-items: center;
-    padding: 15px 60px 0px 20px;
+  display: flex;
+  align-items: center;
+  padding: 15px 60px 0px 20px;
 }
 
 /* .title-secondary h3 {
@@ -30,129 +33,252 @@
 } */
 
 .title-secondary h4 {
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .discription {
-    padding-top: 60px;
-
+  padding-top: 60px;
 }
 
 /* .discription h5 {
     font-size: 20px;
     font-weight: 400;
 } */
-
+.buttons {
+  display: flex;
+}
 .anime-page button {
-    margin: 60px 30px 60px 30px;
-    width: 200px;
-    height: 50px;
-    font-size: 24px;
-    border-radius: 15px;
-    border-style: none;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 60px 30px 60px 30px;
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 15px;
+  border-style: none;
+  cursor: pointer;
 }
 
 .anime-page p {
-    font-size: 16px;
-
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 12; /* Это количество строк, которые вы хотите показать полностью. При достижении этого лимита будет применено многоточие. */
+  -webkit-box-orient: vertical;
 }
 
 .rating-and-statistic {
-    display: flex;
-    margin: 60px;
+  display: flex;
+  padding: 60px;
 }
 
 .rating {
-    display: flex;
-    align-items: center;
-    width: 50%;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  flex-wrap: wrap;
 }
 
 .rating-and-statistic h4 {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    /* margin: 10px; */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* margin: 10px; */
 }
 
 .rating-and-voices {
-    width: 30%;
-    text-align: center;
+  width: 30%;
+  text-align: center;
 }
 
 .rating-bars {
-    width: 50%;
+  width: 50%;
 }
 
 .rating-bar {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .rating-bar h5 {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .img-and-stars {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+.user-img-rating {
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .stars {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .stars svg {
-    margin: 5px;
+  margin: 5px;
 }
 
 .statistic {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .main-bar {
-    border-radius: 5px;
+  border-radius: 5px;
+  width: 90%;
 }
 
-.squers {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 80%;
+/* .squares {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 30px;
+} */
 
+/* .bi-square-fill {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+} */
+
+/* .square {
+  display: flex;
+  align-items: center;
+  width: 33%;
+  padding: 15px;
+} */
+
+/* .square svg {
+  margin-right: 10px;
+} */
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  /* .main-bar {
+    width: 400px;
+  } */
+  /* h5 {
+        font-size: 18px;
+    } */
 }
-
-.squer {
-    display: flex;
-    align-items: center;
-    /* width: 30%; */
-    padding: 15px;
-}
-
-.squer svg {
-    margin-right: 10px;
-}
-
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .stars svg {
-        margin: 0px;
-        width: 10px;
-        height: 10px;
-    }
+  .anime-page {
+    padding: 0px 45px 0px 45px;
+    width: 100%;
+  }
+  .anime-page h1 {
+    font-size: 60px;
+
+    padding-top: 30px;
+  }
+  .anime-page p {
+    font-size: 14px;
+  }
+  .anime-page button {
+    margin: 30px 15px 30px 15px;
+  }
+  .title-secondary {
+    padding: 15px 15px 0px 15px;
+  }
+  .discription {
+    padding-top: 30px;
+  }
+
+  .rating-and-statistic {
+    padding: 30px;
+  }
+  /* .rating-bar svg {
+    width: 200px;
+  } */
+  /* .main-bar {
+    width: 300px;
+  } */
+  .bi-square-fill {
+    width: 10px;
+    height: 10px;
+  }
+  .stars svg {
+    margin: 0px;
+    width: 15px;
+    height: 15px;
+  }
+  .user-img-rating {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+/* Стили для мобильных устройств (ширина до 767px) */
+@media (max-width: 767px) {
+  .rating-and-statistic {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .anime-page {
+    padding: 0px 10px 0px 10px;
+    width: 100%;
+  }
+  .anime-page h1 {
+    font-size: 32px;
+
+    padding-top: 15px;
+  }
+  .anime-page p {
+    font-size: 12px;
+  }
+  .anime-page button {
+    margin: 15px 10px 15px 10px;
+    font-size: 16px;
+    width: 150px;
+  }
+  .title-secondary {
+    padding: 5px 5px 0px 5px;
+  }
+  .discription {
+    padding-top: 30px;
+  }
+  .rating {
+    width: 100%;
+  }
+  .rating-bar rect {
+    height: 10px;
+  }
+  .bi-square-fill {
+    width: 10px;
+    height: 10px;
+  }
+  .stars {
+    margin-left: 15px;
+  }
+  .stars svg {
+    margin: 3px;
+    width: 30px;
+    height: 30px;
+  }
+  .statistic {
+    width: 100%;
+    margin-top: 30px;
+  }
 }
